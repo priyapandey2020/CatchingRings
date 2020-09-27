@@ -22,13 +22,13 @@ function setup() {
 
 	edges = createEdgeSprites();
 
-	// boxObj= createSprite(100,700);
-	// boxObj.addImage(boxImg);
-	// boxObj.scale = 0.18; 
-	// boxObj.velocityX = 8;
+	boxObj= createSprite(100,550);
+	boxObj.addImage(boxImg);
+	boxObj.scale = 0.6; 
+	boxObj.velocityX = 8;
 
-	plane = createSprite(0,680,1600,80);
-	plane.shapeColor = rgb(255,178,153);
+	plane = createSprite(0,680,1600,60);
+	plane.shapeColor = rgb(153,0,0);
 
 	engine = Engine.create();
 	world = engine.world;
@@ -61,21 +61,6 @@ function setup() {
 	ring4Body = Bodies.circle(660, 50 ,5, {restitution:0.4, isStatic:true});
 	World.add(world, ring4Body);
 
-	boxPosition=width/2-100
- 	boxY=610;
-
- 	boxleftSprite=createSprite(boxPosition, boxY, 20,100);
- 	boxleftSprite.shapeColor=color(255,0,0);
- 	boxleftSprite.velocityX = 8;
-
- 	boxBase=createSprite(boxPosition+100, boxY+40, 200,20);
- 	boxBase.shapeColor=color(255,0,0);
- 	boxBase.velocityX=8;
-
-
- 	boxrightSprite=createSprite(boxPosition+200 , boxY, 20,100);
- 	boxrightSprite.shapeColor=color(255,0,0);
- 	boxrightSprite.velocityX = 8;
 
 	Engine.run(engine);
 }
@@ -83,9 +68,9 @@ function setup() {
 
 function draw() {
   background(0);
-  boxleftSprite.bounceOff(edges);
-  boxBase.bounceOff(edges);
-  boxrightSprite.bounceOff(edges);
+  boxObj.bounceOff(edges);
+  // boxBase.bounceOff(edges);
+  // boxrightSprite.bounceOff(edges);
 
   ring1.x= ring1Body.position.x;
   ring1.y= ring1Body.position.y;
